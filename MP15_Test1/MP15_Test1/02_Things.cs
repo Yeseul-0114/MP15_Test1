@@ -39,6 +39,7 @@ public enum Type
            
             return totalDiscount;
         }
+        
         public static void Payment(int total, int pay)
         {
             if (total <= pay) // 거슬러주기

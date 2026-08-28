@@ -8,9 +8,12 @@ class Program
     public const string STOR_NAME = "무인 아이스크림 1호점";
     public const int DISCOUNT = 3;
     public const float DISCOUNT_RATE = 0.2f;
+    
+    public List<Menu> Bag = new List<Menu>() { };
 
     static void Main(string[] args)
     {
+        
         Menu[] ice = new Menu[]
         {
             new Things("바밤바", (Type)0, 600),
@@ -36,13 +39,14 @@ class Program
         int selec = ConsoleInput.ReadIntAtLeast("선택 수량 : ", 0); 
         Console.WriteLine($"{ice[menuNumber].MenuName} x {selec}   총 {ice[menuNumber].Price * selec}원");
         ConsoleInput.Pause();
+        
         Console.Clear(); // 이 친구는 어디까지 지우는지 선택 불가능한가
         Console.WriteLine($"{ice[menuNumber].MenuName} x {selec}   총 {ice[menuNumber].Price * selec}원");
         int totalDiscount = Things.DiscountPrice(selec,ice[menuNumber].Price,ice[menuNumber].MenuType,DISCOUNT,DISCOUNT_RATE );
-        Console.WriteLine($"   ㄴ할인 금액은 {totalDiscount}원, 지불하실 금액은 {(ice[menuNumber].Price * selec)-totalDiscount}원 입니다.");
+        int totalpayment = (ice[menuNumber].Price * selec) - totalDiscount;
+        Console.WriteLine($"   ㄴ할인 금액은 {totalDiscount}원, 지불하실 금액은 {totalpayment}원 입니다.");
         
         ConsoleInput.Pause();
-
         Console.WriteLine($"어떻게 하시겠습니까?");
         Console.WriteLine($"1. 담기  2. 전체 비우기  3. 결제  4. 영업종료");
         int selecNum = ConsoleInput.ReadIntInRange("메뉴 번호 : ", 1, 4);
@@ -50,16 +54,20 @@ class Program
         switch (selecNum)
         {
             case 1: 
-                
+                break;
+            case 2 :
+                break;
+
             case 3:
                 Console.WriteLine($"현금을 투입해주세요.");
                 int paid = ConsoleInput.ReadIntAtLeast("받은 금액 : ", 0);
-                Things.Payment((ice[menuNumber].Price * selec)-totalDiscount,paid);
+                Things.Payment(totalpayment,paid);
                 break;
             case 4:
                 Console.WriteLine();
                 Console.WriteLine($"[{STOR_NAME}  영업을 종료합니다.]");
-                Console.WriteLine($"      ㄴ 총 매출액 : {(ice[menuNumber].Price * selec)-totalDiscount}원 /  총 판매 수량 : {selec}");
+                Console.WriteLine($"      ㄴ 총 매출액 : {totalpayment} 원 /  총 판매 수량 : {selec} 개");
+                break;
         }
         
         
