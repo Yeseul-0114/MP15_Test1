@@ -5,6 +5,8 @@ public class Guest<T> : Menu
     public Guest(string menuName, Type menuType, int price) : base(menuName, menuType, price)
     {
     }
-    
+
+    private List<T> Bag = new List<T>() { };
+
     
 }
