@@ -39,7 +39,7 @@ class Program
         Console.Clear(); // 이 친구는 어디까지 지우는지 선택 불가능한가
         Console.WriteLine($"{ice[menuNumber].MenuName} x {paid}   총 {ice[menuNumber].Price * paid}원");
         int totalDiscount = Things.DiscountPrice(paid,ice[menuNumber].Price,ice[menuNumber].MenuType,DISCOUNT,DISCOUNT_RATE );
-        Console.WriteLine($" 할인 금액은 {totalDiscount}원 입니다.");
+        Console.WriteLine($" 할인 금액은 {totalDiscount}원, 지불하실 금액은 {(ice[menuNumber].Price * paid)-totalDiscount}원 입니다.");
         
 
 
