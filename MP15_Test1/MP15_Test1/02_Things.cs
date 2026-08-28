@@ -14,11 +14,11 @@ public enum Type
 
         public static void Guid(int num)
         {
-            Console.WriteLine($"상품 5개 이상 구입하시면 20% 할인 됩니다.");
+            Console.WriteLine($"** 상품 5개 이상 구입하시면 20% 할인 됩니다.");
             
-            if (num == 5 || num == 6)
+            if (num == 4 || num == 5)
             {
-                Console.WriteLine("과자는 2+1 행사중입니다. 20% 할인은 중복 적용되지 않습니다.");
+                Console.WriteLine("** 과자는 2+1 행사중입니다. 20% 할인은 중복 적용되지 않습니다.");
             }
         }
 
