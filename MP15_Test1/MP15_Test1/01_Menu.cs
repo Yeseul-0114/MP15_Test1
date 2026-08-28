@@ -3,9 +3,9 @@
 public abstract class Menu
 {
     // 멤버
-    public string MenuName;
-    public Type MenuType;
-    public int Price;
+    internal string MenuName { get ; }
+    internal Type MenuType { get; }
+    internal int Price { get; }
     public int BagCount;
 
     // 생성자
