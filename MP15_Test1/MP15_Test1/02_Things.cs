@@ -1,9 +1,9 @@
 ﻿namespace MP15_Test1;
 public enum Type
     {
-        StickIce,
-        ConIce,
-        Snack
+        막대_아이스,
+        콘_아이스,
+        과자
     }
 
     public class Things : Menu
@@ -26,7 +26,7 @@ public enum Type
         {
             int totalDiscount = 0;
             
-            if (type == Type.Snack && buyCount >= 2) // 과자 2+1 행사
+            if (type == (Type)2 && buyCount >= 2) // 과자 2+1 행사
             {
                 int free = 0;
                 free = buyCount / 2;
