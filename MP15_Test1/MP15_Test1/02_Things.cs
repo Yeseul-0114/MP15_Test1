@@ -39,6 +39,18 @@ public enum Type
            
             return totalDiscount;
         }
+        public static void Payment(int total, int pay)
+        {
+            if (total <= pay) // 거슬러주기
+            {
+                Console.WriteLine($"현금 {pay}원 받았습니다. 거스름돈 {pay-total}원 드립니다.");
+            }
+            else if (total > pay)  // 돈 부족
+            {
+                Console.WriteLine($"지불하신 금액이 {total-pay}원 부족합니다.");
+                Console.WriteLine($"장바구니를 비웁니다");
+            }
+        }
 
     }
     

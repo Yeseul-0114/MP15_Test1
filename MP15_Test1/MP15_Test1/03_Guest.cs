@@ -6,7 +6,8 @@ public class Guest<T> : Menu
     {
     }
 
-    private List<T> Bag = new List<T>() { };
+    private List<Menu> Bag = new List<Menu>() { };
+    
 
     
 }
