@@ -15,10 +15,14 @@ public abstract class Menu
         Price = price;
     }
     
-    public void PrintInfo()
+    public static void PrintInfo(Menu[] things)
     {
-        Console.WriteLine($"{MenuName}_{MenuType} : {Price}원");
-        
+        for(int i = 0 ; i < things.Length; i++)
+        {
+            Console.WriteLine($"{i+1}) {things[i].MenuName}_{things[i].MenuType} : {things[i].Price}원");
+
+        }
+
     }
 
 }
