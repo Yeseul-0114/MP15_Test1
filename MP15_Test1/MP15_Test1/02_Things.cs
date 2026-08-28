@@ -11,8 +11,17 @@ public enum Type
         public Things(string name, Type type, int price) : base(name, type, price)
         {
         }
-        
-        public static int DiscountPrice(int buyCount,int price,Type type, float DiscountRate)
+
+        public static void Guid(int num)
+        {
+            Console.WriteLine($"상품 5개 이상 구입하시면 20% 할인 됩니다.");
+            if (num == 5 || num == 6)
+            {
+                Console.WriteLine("과자는 2+1 행사중입니다.");
+            }
+        }
+
+        public static int DiscountPrice(int buyCount, int price, Type type, int discountRate, float DiscountRate)
         {
             int totalDiscount = 0;
             if (buyCount >= 5) // 5개 이상 사면 20% 할인

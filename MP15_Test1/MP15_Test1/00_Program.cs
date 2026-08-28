@@ -24,19 +24,25 @@ class Program
         Line();
         Console.WriteLine($"[{STOR_NAME}] 주문 키오스크");
         Line();
-        Console.WriteLine();
         Console.WriteLine("[구매하실 상품을 선택하세요.]");
         Menu.PrintInfo(ice);
-        Console.WriteLine();
         Line();
         Console.WriteLine("[장바구니]");
         Line();
-        int menuNumber = ConsoleInput.ReadIntInRange("메뉴 번호 : ", 1, 6);
+        Console.WriteLine();
+        int menuNumber = ConsoleInput.ReadIntInRange("메뉴 번호 : ", 1, 6)-1;
         Console.WriteLine($"선택한 상품 {ice[menuNumber].MenuName}을 몇 개 구매하시겠습니까?");
-        int paid = ConsoleInput.ReadIntAtLeast("선택 수량 : ", 0);
+        Things.Guid(menuNumber);
+        int paid = ConsoleInput.ReadIntAtLeast("선택 수량 : ", 0); 
         Console.WriteLine($"{ice[menuNumber].MenuName} x {paid}   총 {ice[menuNumber].Price * paid}원");
-
+        ConsoleInput.Pause();
+        Console.Clear(); // 이 친구는 어디까지 지우는지 선택 불가능한가
+        Console.WriteLine($"{ice[menuNumber].MenuName} x {paid}   총 {ice[menuNumber].Price * paid}원");
+        int totalDiscount = Things.DiscountPrice(paid,ice[menuNumber].Price,ice[menuNumber].MenuType,DISCOUNT,DISCOUNT_RATE );
+        Console.WriteLine($" 할인 금액은 {totalDiscount}원 입니다.");
         
+
+
 
 
 
