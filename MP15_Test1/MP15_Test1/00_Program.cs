@@ -1,4 +1,8 @@
-﻿using System;
+﻿// https://github.com/Yeseul-0114/MP15_Test1
+// 계정 : YeSeul-0114
+// 저장소 이름 : MP15_Test1
+
+using System;
 using System.Collections.Concurrent;
 using MP15_Test1;
 using Type = MP15_Test1.Type;
