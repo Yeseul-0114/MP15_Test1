@@ -4,16 +4,17 @@ public abstract class Menu
 {
     // 멤버
     public string MenuName;
-    public string MenuType;
-    protected int Price { get; set; }
+    public Type MenuType;
+    protected int Price { get; private set; }
 
     // 생성자
-    public Menu(string menuName, string menuType, int price)
+    public Menu(string menuName, Type menuType, int price)
     {
         MenuName = menuName;
         MenuType = menuType;
         Price = price;
     }
+    
     
     
 }
