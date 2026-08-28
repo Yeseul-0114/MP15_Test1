@@ -12,12 +12,11 @@ class Program
     static void Main(string[] args)
     {   
         
-        
         Line();
         Console.WriteLine($"[{STOR_NAME}] 주문 키오스크");
         Line();
-        Console.WriteLine("[구매하실 상품을 선택하세요.]");
-        Menu.PrintInfo(new Menu[]ice);
+        Console.WriteLine("[상품 목록]");
+        PrintInfo();
         
 
     }
