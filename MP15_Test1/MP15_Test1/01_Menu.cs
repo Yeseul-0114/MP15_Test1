@@ -6,13 +6,15 @@ public abstract class Menu
     public string MenuName;
     public Type MenuType;
     public int Price;
+    public int BagCount;
 
     // 생성자
-    public Menu(string menuName, Type menuType, int price)
+    public Menu(string menuName, Type menuType, int price, int bagCount)
     {
         MenuName = menuName;
         MenuType = menuType;
         Price = price;
+        BagCount = bagCount;
     }
     
     public static void PrintInfo(Menu[] things)

@@ -8,7 +8,7 @@ public enum Type
 
     public class Things : Menu
     {
-        public Things(string name, Type type, int price) : base(name, type, price)
+        public Things(string name, Type type, int price,int bagcount) : base(name, type, price, bagcount)
         {
         }
 
@@ -52,6 +52,7 @@ public enum Type
                 Console.WriteLine($"장바구니를 비웁니다");
             }
         }
+
 
     }
     
