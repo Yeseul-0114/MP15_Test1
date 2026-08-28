@@ -44,13 +44,9 @@ class Program
             Things.Guid(menuNumber);
             int selec = ConsoleInput.ReadIntAtLeast("선택 수량 : ", 0);
             Console.WriteLine($"{ice[menuNumber].MenuName} x {selec}   총 {ice[menuNumber].Price * selec}원");
-            ConsoleInput.Pause();
-
-            Console.Clear();
-            Console.WriteLine($"{ice[menuNumber].MenuName} x {selec}   총 {ice[menuNumber].Price * selec}원");
             int discount = Things.DiscountPrice(selec, ice[menuNumber].Price, ice[menuNumber].MenuType, DISCOUNT,
                 DISCOUNT_RATE);
-            int totalpayment = (ice[menuNumber].Price * selec) - totalDiscount;
+            int totalpayment = (ice[menuNumber].Price * selec) - discount;
             Console.WriteLine($"   ㄴ할인 금액은 {discount}원, 지불하실 금액은 {totalpayment}원 입니다.");
 
             ConsoleInput.Pause();
@@ -81,17 +77,18 @@ class Program
                 Console.WriteLine("장바구니를 비웁니다.");
             }
         }
-
-        Console.WriteLine($"현금을 투입해주세요.");
-        int paid = ConsoleInput.ReadIntAtLeast("받은 금액 : ", 0);
-
+        
+        Console.Clear();
         for (int i = 0; i < bag.Count; i++)
         {
-            guestPayment += (bag[i].Price * bag[i].BagCount) - totalDiscount;
+            guestPayment += (bag[i].Price * bag[i].BagCount);
             guestTotalCount += bag[i].BagCount;
         }
-
-        Things.Payment(guestPayment, paid);
+        Console.WriteLine($"총 금액은 {guestPayment-totalDiscount}원 입니다.");
+        Console.WriteLine($"현금을 투입해주세요.");
+        int paid = ConsoleInput.ReadIntAtLeast("받은 금액 : ", 0);
+        
+        Things.Payment(guestPayment-totalDiscount, paid);
 
         Console.WriteLine();
         Console.WriteLine($"[{STOR_NAME}  영업을 종료합니다.]");
