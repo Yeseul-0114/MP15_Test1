@@ -3,7 +3,7 @@
 public abstract class Menu
 {
     // 멤버
-    public string MenuName;
+    protected string MenuName { get; }
     public Type MenuType;
     protected int Price { get; private set; }
 
@@ -15,6 +15,12 @@ public abstract class Menu
         Price = price;
     }
     
-    
-    
+    public static void PrintInfo(Menu[] things)
+    {
+        for(int i = 0 ; i < things.Length; i++)
+        {
+            Console.WriteLine($"{i+1}) {things[i].MenuName}_{things[i].MenuType} : {things[i].Price}원");
+        }
+    }
+
 }
